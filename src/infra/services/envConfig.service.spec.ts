@@ -15,6 +15,12 @@ describe("EnvConfigService", () => {
     expect(sut).toBeDefined();
   });
 
+  it("should return a dotenv object", () => {
+    const env = sut.envPathConstruction('test');
+    expect(env).toBeTruthy();
+    expect(env).toBeDefined();
+  });
+
   it("should return a number", () => {
     const port = sut.getAppPort();
     expect(typeof port).toBe('number');
