@@ -29,6 +29,12 @@ describe("EnvConfigService", () => {
     expect(environment).toEqual(dotenv.config({ path: expectedPath }));
   });
 
+  it("should return correct path for test environment", () => {
+    const expectedPath = path.join(__dirname, `../../../.env.test`);
+    const environment = sut.envPathConstruction('test');
+    expect(environment).toEqual(dotenv.config({ path: expectedPath }));
+  });
+
   it("should return a number", () => {
     const port = sut.getAppPort();
     expect(typeof port).toBe('number');
